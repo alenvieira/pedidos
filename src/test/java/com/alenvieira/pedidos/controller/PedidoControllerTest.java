@@ -61,7 +61,7 @@ class PedidoControllerTest {
         ValorTotalPedidoResponse cursoConsulta = objectMapper.readValue(response, ValorTotalPedidoResponse.class);
         // validação
         assertEquals(cursoConsulta.codigoPedido(), pedido.getCodigoPedido());
-        assertEquals(cursoConsulta.valorTotal(), 120, 0.000001d);
+        assertEquals(cursoConsulta.valorTotal(), 120);
     }
 
     @Test

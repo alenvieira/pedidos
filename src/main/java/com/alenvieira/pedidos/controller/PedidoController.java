@@ -28,7 +28,7 @@ public class PedidoController {
                         NOT_FOUND, "Pedido não encontrado."
                 )
         );
-        return ResponseEntity.ok(new ValorTotalPedidoResponse(codigoPedido, valorTotal));
+        return ResponseEntity.ok(new ValorTotalPedidoResponse(codigoPedido, Math.floor(valorTotal * 100) / 100));
     }
 
     @GetMapping("/clientes/{codigo-cliente}/quantidade-de-pedido")
