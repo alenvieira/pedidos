@@ -15,6 +15,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
+import java.util.Map;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -74,7 +75,8 @@ class PedidoControllerTest {
                 .andReturn()
                 .getResponse();
         // validação
-        assertEquals(response.getErrorMessage(), "Pedido não encontrado.");
+        var erro = objectMapper.readValue(response.getContentAsString(UTF_8), Map.class);
+        assertEquals(erro.get("detail"), "Pedido não encontrado.");
     }
 
     @Test
@@ -88,7 +90,8 @@ class PedidoControllerTest {
                 .andReturn()
                 .getResponse();
         // validação
-        assertEquals(response.getErrorMessage(), "Pedidos não encontrado.");
+        var erro = objectMapper.readValue(response.getContentAsString(UTF_8), Map.class);
+        assertEquals(erro.get("detail"), "Pedidos não encontrado.");
     }
 
     @Test

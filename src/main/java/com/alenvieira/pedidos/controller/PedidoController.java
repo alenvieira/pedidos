@@ -21,7 +21,7 @@ public class PedidoController {
         this.repository = pedidoRepository;
     }
 
-    @GetMapping("{codigo-pedido}/valor-total")
+    @GetMapping("/{codigo-pedido}/valor-total")
     public ResponseEntity<?> calcularValorTotalPedido(@PathVariable("codigo-pedido") Long codigoPedido) {
         Double valorTotal = this.repository.consultarValorTotalPedido(codigoPedido).orElseThrow(
                 () -> new ResponseStatusException(
