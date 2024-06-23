@@ -1,0 +1,50 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    networks:
+      - pedidos-network
+    environment:
+        - POSTGRES_USER=${DATABASE_USER:-postgres}
+        - POSTGRES_PASSWORD=${DATABASE_PASSWORD:-postgres}
+        - POSTGRES_DB=${DATABASE_NAME:-pedidos}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"
+    networks:
+      - pedidos-network
+
+  pedidos:
+      container_name: pedidos
+      build:
+        context: .
+        dockerfile: Dockerfile
+      ports:
+        - "8080:8080"
+      environment:
+        - DB_URL=${DATABASE_URL:-jdbc:postgresql://postgres:5432/pedidos}
+        - DB_USER=${DATABASE_USER:-posgres}
+        - DB_PASSWORD=${DATABASE_PASSWORD:-posgres}
+        - RABBITMQ_HOST=${AMQP_HOST:-rabbitmq}
+        - RABBITMQ_VIRTUAL_HOST=${AMQP_VIRTUAL_HOST:-/}
+        - RABBITMQ_PASSWORD=${AMQP_PASSWORD:-guest}
+        - RABBITMQ_PORT=${AMQP_PORT:-5672}
+        - RABBITMQ_USER:${AMQP_USER:-guest}
+      depends_on:
+        - rabbitmq
+        - postgres
+      networks:
+        - pedidos-network
+
+networks:
+  pedidos-network:
+    driver: bridge

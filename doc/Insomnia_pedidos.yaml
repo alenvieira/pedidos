@@ -1,0 +1,100 @@
+_type: export
+__export_format: 4
+__export_date: 2024-06-23T12:13:43.657Z
+__export_source: insomnia.desktop.app:v2023.5.8
+resources:
+  - _id: req_3ff42208dbcc4caa86ceaec6c927c8e4
+    parentId: wrk_a4592e52001f4762836491c4e30fb27f
+    modified: 1719141388187
+    created: 1719140933816
+    url: https://pedidos-btg.onrender.com/api/v1/pedidos/clientes/1/quantidade-de-pedido
+    name: Quantidade de pedidos por Cliente
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1719140933816
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_a4592e52001f4762836491c4e30fb27f
+    parentId: null
+    modified: 1719140917893
+    created: 1719140917893
+    name: pedidos-btg
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_c817f8a8ff8d43bba1949ce8d1373d56
+    parentId: wrk_a4592e52001f4762836491c4e30fb27f
+    modified: 1719141518703
+    created: 1719141513824
+    url: https://pedidos-btg.onrender.com/api/v1/pedidos/clientes/1
+    name: Pedidos do Cliente
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1719140933766
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_4f0bf4ab8d8f400a929f03ea7a2be278
+    parentId: wrk_a4592e52001f4762836491c4e30fb27f
+    modified: 1719141639310
+    created: 1719141613248
+    url: https://pedidos-btg.onrender.com/api/v1/pedidos/1001/valor-total
+    name: Valor total do pedido
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1719140933716
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_1750f9f23bfa6db70c6cbae238f1df5e53721ec8
+    parentId: wrk_a4592e52001f4762836491c4e30fb27f
+    modified: 1719140917897
+    created: 1719140917897
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1719140917897
+    _type: environment
+  - _id: jar_1750f9f23bfa6db70c6cbae238f1df5e53721ec8
+    parentId: wrk_a4592e52001f4762836491c4e30fb27f
+    modified: 1719140917898
+    created: 1719140917898
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
